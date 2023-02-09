@@ -7,7 +7,7 @@ int main(){
     SDL_Renderer *renderer;
     SDL_Window *window;
 
-    int res = 1000;
+    int res = 3500;
     SDL_Init(SDL_INIT_VIDEO);
     SDL_CreateWindowAndRenderer(res,res,0,&window,&renderer);
 
@@ -19,9 +19,9 @@ int main(){
             out[i][j] = ' ';
         }
     }*/
-    for(double x = -2; x <= 2; x += .005){
+    for(double x = -2; x <= 2; x += .001){
         //printf("y iteration: %f\n",i);
-        for(double y = -2; y <= 2; y += .005){
+        for(double y = -2; y <= 2; y += .001){
             z = 0;
 
             //printf("%f, ",x);
@@ -33,8 +33,8 @@ int main(){
             outY = outY + res*2;
             outX = outX / 4;
             outY = outY / 4;
-            if(outX > 1000){outX = 1000;}
-            if(outY > 1000){outX = 1000;}
+            if(outX > res){outX = res;}
+            if(outY > res){outX = res;}
             if(outX < 0){outY = 0;}
             if(outY < 0){outY = 0;}
             for(int k = 0; k < 100; k++){
@@ -49,7 +49,7 @@ int main(){
                     if(k > 60 && k < 70){SDL_SetRenderDrawColor(renderer,0,0,255,255);}
                     if(k > 70 && k < 80){SDL_SetRenderDrawColor(renderer,150,0,255,255);}
                     if(k > 80 && k < 90){SDL_SetRenderDrawColor(renderer,255,0,255,255);}
-                    if(k > 90){SDL_SetRenderDrawColor(renderer,0,0,0,0);}
+                    if(k > 90){SDL_SetRenderDrawColor(renderer,54,36,0,255);}
                     SDL_RenderDrawPoint(renderer,outX,outY);
                     //SDL_RenderPresent(renderer);
                     k = 100;
